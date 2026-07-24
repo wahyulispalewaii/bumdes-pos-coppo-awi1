@@ -1,0 +1,20 @@
+{
+  "name": "bumdes-pos-coppo-awi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi kasir BUMDes Coppo Awi untuk Cloudflare Pages, Pages Functions, D1, dan Cloudinary.",
+  "scripts": {
+    "dev": "wrangler pages dev public",
+    "deploy": "wrangler pages deploy public --project-name bumdes-pos-coppo-awi",
+    "db:create": "wrangler d1 create db_bumdes-pos-coppo-awi",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "db:execute:local": "wrangler d1 execute DB --local --command",
+    "typecheck": "tsc --noEmit",
+    "verify": "python3 scripts/verify_project.py && tsc --noEmit && node --check public/assets/js/app.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0",
+    "wrangler": "^4.0.0"
+  }
+}

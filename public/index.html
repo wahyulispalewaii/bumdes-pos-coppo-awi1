@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f6a3b">
+  <meta name="description" content="Aplikasi kasir dan pengelolaan usaha BUMDes Coppo Awi.">
+  <title>BUMDes Coppo Awi POS</title>
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+  <div id="modal-root"></div>
+
+  <section id="login-screen" class="login-screen">
+    <div class="login-decor login-decor-a"></div>
+    <div class="login-decor login-decor-b"></div>
+    <div class="login-panel">
+      <div class="login-brand">
+        <img src="/assets/img/logo-bumdes.webp" alt="Logo BUMDes Coppo Awi" class="login-logo">
+        <div>
+          <span class="eyebrow">Sistem Informasi Kasir</span>
+          <h1>BUMDes Coppo Awi</h1>
+          <p>Desa Gattareng, Kecamatan Marioriwawo, Kabupaten Soppeng</p>
+        </div>
+      </div>
+      <form id="login-form" class="login-form" autocomplete="on">
+        <div class="form-heading">
+          <h2>Masuk ke aplikasi</h2>
+          <p>Gunakan akun yang diberikan oleh administrator.</p>
+        </div>
+        <label class="field">
+          <span>Username</span>
+          <input id="login-username" name="username" autocomplete="username" required placeholder="Masukkan username">
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <div class="password-wrap">
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required placeholder="Masukkan password">
+            <button type="button" id="toggle-password" class="icon-button small" aria-label="Tampilkan password">👁</button>
+          </div>
+        </label>
+        <button id="login-button" type="submit" class="button primary full">Masuk</button>
+        <div class="quick-login-grid" aria-label="Login cepat">
+          <button type="button" class="button outline" data-quick-login="admin">Masuk sebagai Admin</button>
+          <button type="button" class="button outline" data-quick-login="kasir">Masuk sebagai Kasir</button>
+        </div>
+        <div class="login-note">
+          <strong>Login sederhana aktif.</strong><br>
+          Admin: <code>admin</code> / <code>admin</code><br>
+          Kasir: <code>kasir</code> / <code>kasir</code>
+        </div>
+      </form>
+      <footer class="login-footer">BUMDes Coppo Awi · Aplikasi kasir berbasis Cloudflare</footer>
+    </div>
+  </section>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <img id="sidebar-logo" src="/assets/img/logo-bumdes-small.webp" alt="Logo BUMDes">
+        <div>
+          <strong id="sidebar-org-name">BUMDes Coppo Awi</strong>
+          <span>Point of Sale</span>
+        </div>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Navigasi utama"></nav>
+      <div class="sidebar-footer">
+        <div class="user-card">
+          <div id="user-avatar" class="user-avatar">A</div>
+          <div class="user-meta">
+            <strong id="current-user-name">Pengguna</strong>
+            <span id="current-user-role">ROLE</span>
+          </div>
+          <button id="logout-button" class="icon-button" title="Keluar" aria-label="Keluar">↪</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="mobile-menu-button" class="icon-button mobile-only" aria-label="Buka menu">☰</button>
+          <div>
+            <h2 id="page-title">Dashboard</h2>
+            <p id="page-subtitle">Ringkasan operasional BUMDes</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <label class="compact-select">
+            <span>Outlet</span>
+            <select id="global-outlet-select"></select>
+          </label>
+          <div id="shift-badge" class="status-chip neutral">Shift belum dibuka</div>
+          <button id="quick-pos-button" class="button primary compact">Buka Kasir</button>
+        </div>
+      </header>
+      <section id="page-content" class="page-content"></section>
+    </main>
+  </div>
+
+  <template id="loading-template">
+    <div class="loading-state"><span class="spinner"></span><p>Memuat data...</p></div>
+  </template>
+
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>

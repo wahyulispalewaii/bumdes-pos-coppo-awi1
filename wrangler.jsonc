@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bumdes-pos-coppo-awi",
+  "compatibility_date": "2026-07-24",
+  "pages_build_output_dir": "./public",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "db_bumdes-pos-coppo-awi",
+      "database_id": "56016eba-b9df-49b9-8cd3-da84f066db32",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "APP_NAME": "BUMDes Coppo Awi POS",
+    "SESSION_TTL_HOURS": "24",
+    "SIMPLE_LOGIN_ENABLED": "true"
+  }
+}
