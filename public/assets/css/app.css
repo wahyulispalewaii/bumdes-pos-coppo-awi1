@@ -85,7 +85,7 @@ a { color: inherit; }
   align-items: flex-start;
   background:
     linear-gradient(150deg, rgba(17,53,31,.93), rgba(36,106,61,.94)),
-    url('/assets/img/logo-bumdes-original.jpeg') center/cover;
+    url('/assets/img/logo_kknt_unipol26.svg') center/cover;
   min-height: 580px;
   position: relative;
 }
